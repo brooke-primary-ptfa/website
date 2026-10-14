@@ -23,8 +23,9 @@ says (events, promotions, links, documents) without help from a developer.
 | What "Publish to live" deploys | Exactly the build on the preview channel, copied to live with `firebase hosting:clone`. No rebuild. If the preview has expired (channels last at most 30 days) the run fails with "Nothing in preview to publish. Publish to preview first." The status area shows when preview and live were last published. |
 | Past events and expired promotions | Volunteers remove them. No scheduled rebuild. |
 | Firebase project | `tactical-racer-511622-r1`, in the PTFA Google Cloud account. Default site `tactical-racer-511622-r1.web.app`. |
-| Links with no address yet | Not shown. The prototype linked them to "#". Donate, Easyfundraising, lottery, Facebook, WhatsApp, privacy and accessibility are hidden until real addresses are added. Documents with no approved copy show their row without a download link. |
-| Example content | The prototype's events are labelled "Example events — real dates to follow" and the site keeps that label until real events replace them. |
+| Links with no address yet | Not shown. The prototype linked them to "#". Donate, Easyfundraising, lottery, Facebook, WhatsApp, privacy and accessibility are hidden until real addresses are added. |
+| Placeholder content | Not shown. The prototype's example events and promotions, "To be confirmed" committee and "Awaiting approved copy" documents are left out until real versions exist. |
+| Charity identity on the site | The About section and footer give the registered name, Brooke Parent-Teacher and Friends Association, and the charity number, so the site can be matched to the Charity Commission register. The public contact address is treasurer@brookeprimaryptfa.org.uk. |
 | Code ownership | Public repo `brooke-primary-ptfa/website` in a GitHub organisation owned by the PTFA. |
 
 ## How content gets to the site

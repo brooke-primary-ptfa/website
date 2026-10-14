@@ -1,33 +1,27 @@
 <script lang="ts">
 	import EventCard from '#lib/components/EventCard.svelte';
-	import Icon from '#lib/components/Icon.svelte';
 	import LinkButton from '#lib/components/LinkButton.svelte';
 	import SectionHeading from '#lib/components/SectionHeading.svelte';
 	import type { SiteEvent } from '#lib/content/types.ts';
 
-	let {
-		events,
-		eventsAreExamples,
-		ptaEventsUrl
-	}: { events: SiteEvent[]; eventsAreExamples: boolean; ptaEventsUrl: string } = $props();
+	let { events, ptaEventsUrl }: { events: SiteEvent[]; ptaEventsUrl: string } = $props();
 </script>
 
 <section id="events" class="section whats-on">
 	<div class="intro">
 		<SectionHeading>What's on</SectionHeading>
-		<p class="lead">Tickets and helper sign-ups are on PTA Events. Tap an event to book.</p>
-		{#if eventsAreExamples}
-			<p class="note"><Icon name="info" size={16} />Example events — real dates to follow.</p>
-		{/if}
+		<p class="lead">Tickets and helper sign-ups are on PTA Events.{#if events.length > 0} Tap an event to book.{/if}</p>
 		<div class="all-events">
 			<LinkButton href={ptaEventsUrl} variant="secondary" iconRight="external-link" newTab>All events and tickets</LinkButton>
 		</div>
 	</div>
-	<div class="list">
-		{#each events as event (event.date + event.title)}
-			<a href={ptaEventsUrl} target="_blank" rel="noopener"><EventCard {event} /></a>
-		{/each}
-	</div>
+	{#if events.length > 0}
+		<div class="list">
+			{#each events as event (event.date + event.title)}
+				<a href={ptaEventsUrl} target="_blank" rel="noopener"><EventCard {event} /></a>
+			{/each}
+		</div>
+	{/if}
 </section>
 
 <style>
@@ -46,13 +40,6 @@
 		color: var(--fg-2);
 		font-size: 18px;
 		max-width: 360px;
-	}
-	.note {
-		font-size: 15px;
-		color: var(--fg-3);
-		display: flex;
-		gap: 8px;
-		align-items: center;
 	}
 	.all-events {
 		margin-top: 8px;

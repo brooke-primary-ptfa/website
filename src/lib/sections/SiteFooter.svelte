@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CHARITY_REGISTER_URL } from '#lib/content/site-content.ts';
+	import { CHARITY_REGISTER_URL, REGISTERED_NAME } from '#lib/content/site-content.ts';
 	import type { SiteLinks } from '#lib/content/types.ts';
 
 	let { links }: { links: SiteLinks } = $props();
@@ -25,8 +25,8 @@
 		<div class="about">
 			<span class="name">Brooke Primary PTFA</span>
 			<span>
-				An independent registered charity (No. 1034707) supporting Brooke Church of England VC Primary School,
-				Brooke, Norfolk.
+				{REGISTERED_NAME}, registered charity No. 1034707, supporting Brooke Church of England VC Primary
+				School, Brooke, Norfolk.
 			</span>
 		</div>
 		<div class="links">

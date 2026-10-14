@@ -10,7 +10,7 @@
 	import StayInTouch from '#lib/sections/StayInTouch.svelte';
 	import WhatsOn from '#lib/sections/WhatsOn.svelte';
 
-	const { events, eventsAreExamples, promotions, links, documents } = siteContent;
+	const { events, promotions, links, documents, committee } = siteContent;
 </script>
 
 <svelte:head>
@@ -25,10 +25,10 @@
 <main id="top">
 	<PromoCarousel {promotions} />
 	<Hero />
-	<WhatsOn {events} {eventsAreExamples} ptaEventsUrl={links.ptaEvents} />
+	<WhatsOn {events} ptaEventsUrl={links.ptaEvents} />
 	<GetInvolved {links} />
 	<Impact />
-	<About {documents} />
+	<About {documents} {committee} />
 	<StayInTouch {links} />
 </main>
 <SiteFooter {links} />

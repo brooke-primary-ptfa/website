@@ -26,25 +26,21 @@ describe('home page content, prerendered without JavaScript', () => {
 		expect(heading && textOf(heading)).toBe('Little things. Big difference.');
 	});
 
-	it('lists each event with its date, time, place and price', () => {
-		const events = sectionText('events');
+	it('sends visitors to PTA Events for tickets while no events are listed', () => {
+		// Given no confirmed events yet
+		const link = page.querySelector('#events a[href="https://www.pta-events.co.uk/ptfabrookeprimarynorfolk/"]');
 
-		expect(events).toContain('Autumn Bake Sale');
-		expect(events).toContain('Whole-School Disco');
-		expect(events).toContain('Elfridges Christmas Gift Shop');
-		expect(events).toMatch(/Fri\s*23\s*Oct/);
-		expect(events).toContain('School hall');
-		expect(events).toContain('Gifts from £1');
+		// Then the section still links to PTA Events
+		expect(link && textOf(link)).toBe('All events and tickets');
 	});
 
-	it('labels the events as examples until real dates are confirmed', () => {
-		expect(sectionText('events')).toContain('Example events — real dates to follow.');
-	});
+	it('shows no placeholder or example content', () => {
+		const text = textOf(page);
 
-	it('shows the first promotion', () => {
-		const promotions = page.querySelector('[aria-label="Promotions"]');
-
-		expect(promotions && textOf(promotions)).toContain("Order your children's artwork tea towels");
+		expect(text).not.toContain('Example events');
+		expect(text).not.toContain('To be confirmed');
+		expect(text).not.toContain('Awaiting approved copy');
+		expect(page.querySelector('[aria-label="Promotions"]')).toBeNull();
 	});
 
 	it('has every section the navigation links to', () => {
@@ -58,12 +54,17 @@ describe('home page content, prerendered without JavaScript', () => {
 		}
 	});
 
-	it('shows the charity number in the about section and the footer', () => {
-		expect(sectionText('about')).toContain('1034707');
-		expect(textOf(page.querySelector('footer')!)).toContain('No. 1034707');
+	it.each(['about', 'footer'])('shows the registered charity name and number in the %s', (where) => {
+		// Given the Charity Commission registers the PTFA under a longer name
+		const text = where === 'footer' ? textOf(page.querySelector('footer')!) : sectionText(where);
+
+		// Then a reviewer can match the site to the register
+		expect(text).toContain('Brooke Parent-Teacher and Friends Association');
+		expect(text).toContain('1034707');
 	});
 
-	it('shows the contact email', () => {
-		expect(sectionText('contact')).toContain('brookeprimaryptfa@gmail.com');
+	it('gives an email address on the PTFA domain, never a Gmail one', () => {
+		expect(sectionText('contact')).toContain('treasurer@brookeprimaryptfa.org.uk');
+		expect(page.outerHTML).not.toContain('gmail.com');
 	});
 });

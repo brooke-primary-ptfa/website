@@ -40,15 +40,20 @@ export interface SiteDocument {
 	title: string;
 	note: string;
 	icon: IconName;
-	/** Absent until an approved copy exists; the row shows without a link. */
-	href?: string;
+	href: string;
 	linkKind: 'pdf' | 'external';
 }
 
+export interface CommitteeMember {
+	role: string;
+	name: string;
+}
+
+/** Lists that are empty are not shown on the site. */
 export interface SiteContent {
-	eventsAreExamples: boolean;
 	events: SiteEvent[];
 	promotions: Promotion[];
 	links: SiteLinks;
 	documents: SiteDocument[];
+	committee: CommitteeMember[];
 }
