@@ -1,0 +1,57 @@
+/* Design tokens from the Brooke PTFA design system (Claude Design prototype). */
+/* Brooke PTFA colours. Base hues sampled from the Brooke Primary badge (blue ring, green ducks, yellow heads, pink water-line). */
+:root{
+--brooke-blue-50:#eef4fc;--brooke-blue-100:#d7e5f8;--brooke-blue-200:#aecbf1;--brooke-blue-300:#7aa9e6;--brooke-blue-400:#4285d8;--brooke-blue-500:#1868c8;--brooke-blue-600:#1257ab;--brooke-blue-700:#0f4588;--brooke-blue-800:#0d3566;--brooke-blue-900:#0a2647;
+--duck-green-50:#e9f9ef;--duck-green-100:#c8f1d8;--duck-green-300:#5fdc95;--duck-green-500:#10b060;--duck-green-600:#0d9450;--duck-green-700:#0b7340;--duck-green-800:#0a5532;
+--duckbill-yellow-100:#fff4c2;--duckbill-yellow-300:#ffe066;--duckbill-yellow-400:#fcd23a;--duckbill-yellow-500:#f2bd0f;--duckbill-yellow-700:#8a6a00;
+--pond-pink-50:#fdeef3;--pond-pink-100:#fad3e0;--pond-pink-300:#f08aaf;--pond-pink-500:#e03070;--pond-pink-600:#c2225c;--pond-pink-700:#9c1a49;
+--paper:#fbf9f4;--paper-2:#f4f0e6;--white:#ffffff;
+--ink-900:#16202e;--ink-700:#38455a;--ink-500:#5f6b7e;--ink-400:#8792a3;--ink-300:#c3cad5;--ink-200:#dfe3ea;--ink-100:#eef0f4;
+/* semantic */
+--fg-1:var(--ink-900);--fg-2:var(--ink-700);--fg-3:var(--ink-500);--fg-muted:var(--ink-400);--fg-on-brand:var(--white);--fg-link:var(--brooke-blue-600);--fg-link-hover:var(--brooke-blue-800);
+--surface-page:var(--paper);--surface-sunken:var(--paper-2);--surface-card:var(--white);--surface-brand:var(--brooke-blue-500);--surface-brand-deep:var(--brooke-blue-800);--surface-brand-soft:var(--brooke-blue-50);--surface-sunny:var(--duckbill-yellow-100);
+--border-1:var(--ink-200);--border-2:var(--ink-300);--border-strong:var(--ink-900);--border-focus:var(--brooke-blue-500);
+--accent-primary:var(--brooke-blue-500);--accent-primary-hover:var(--brooke-blue-600);--accent-primary-press:var(--brooke-blue-700);
+--accent-fun:var(--duckbill-yellow-400);--accent-fun-hover:var(--duckbill-yellow-500);
+--accent-warm:var(--pond-pink-500);--accent-warm-hover:var(--pond-pink-600);
+--success-fg:var(--duck-green-700);--success-bg:var(--duck-green-50);--success-solid:var(--duck-green-500);
+--warning-fg:var(--duckbill-yellow-700);--warning-bg:var(--duckbill-yellow-100);--warning-solid:var(--duckbill-yellow-500);
+--danger-fg:var(--pond-pink-700);--danger-bg:var(--pond-pink-50);--danger-solid:var(--pond-pink-600);
+--info-fg:var(--brooke-blue-700);--info-bg:var(--brooke-blue-50);--info-solid:var(--brooke-blue-500);
+}
+
+:root{
+--font-display:'Fredoka','Baloo 2','Trebuchet MS',sans-serif;
+--font-body:'Figtree','Segoe UI',system-ui,sans-serif;
+--font-mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+--fs-display:64px;--fs-h1:44px;--fs-h2:32px;--fs-h3:24px;--fs-h4:19px;--fs-lead:20px;--fs-body:17px;--fs-small:15px;--fs-caption:13px;--fs-overline:13px;
+--lh-tight:1.05;
+--lh-heading:1.15;
+--lh-body:1.55;
+
+--fw-regular:400;
+--fw-medium:500;
+--fw-semibold:600;
+--fw-bold:700;
+
+--tracking-overline:0.08em;--tracking-display:-0.01em;
+--text-display-font:var(--font-display);--text-heading-font:var(--font-display);--text-body-font:var(--font-body);
+}
+
+:root{
+--space-0:0;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;--space-10:40px;--space-12:48px;--space-16:64px;--space-20:80px;--space-24:96px;
+--radius-xs:6px;--radius-sm:10px;--radius-md:16px;--radius-lg:24px;--radius-xl:32px;--radius-pill:999px;
+--border-w:1.5px;--border-w-strong:2px;
+--shadow-1:0 1px 2px rgba(13,53,102,.08),0 1px 1px rgba(13,53,102,.04);
+--shadow-2:0 4px 14px rgba(13,53,102,.10),0 1px 3px rgba(13,53,102,.06);
+--shadow-3:0 14px 36px rgba(13,53,102,.16),0 3px 8px rgba(13,53,102,.08);
+--shadow-pop:4px 4px 0 var(--ink-900);
+--focus-ring:0 0 0 3px var(--white),0 0 0 6px var(--brooke-blue-400);
+--container-max:1160px;--container-narrow:760px;--gutter:24px;
+--ease-out:cubic-bezier(.22,.8,.3,1);
+--ease-bounce:cubic-bezier(.34,1.56,.64,1);
+--dur-fast:120ms;
+--dur-base:200ms;
+--dur-slow:360ms;
+
+}
