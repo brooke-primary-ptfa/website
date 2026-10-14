@@ -13,4 +13,16 @@ describe('Firebase Hosting configuration', () => {
 	it('targets the PTFA Firebase project', () => {
 		expect(readJson('.firebaserc').projects.default).toBe('tactical-racer-511622-r1');
 	});
+
+	it('makes browsers and the CDN check for a newer page on every visit', () => {
+		// Given Firebase's default lets pages be cached for an hour, a published
+		// change could stay invisible for that long
+		const catchAll = readJson('firebase.json').hosting.headers.find(
+			(rule: { source: string }) => rule.source === '**'
+		);
+		const cacheControl = catchAll.headers.find((header: { key: string }) => header.key === 'Cache-Control');
+
+		expect(cacheControl?.value).toBe('no-cache');
+	});
 });
+
