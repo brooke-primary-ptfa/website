@@ -1,28 +1,31 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import Icon from '#lib/components/Icon.svelte';
 	import LinkButton from '#lib/components/LinkButton.svelte';
 
 	let { donateUrl }: { donateUrl?: string } = $props();
 
 	const navItems = [
-		{ label: "What's on", href: '#events' },
-		{ label: 'Get involved', href: '#help' },
-		{ label: 'About', href: '#about' },
-		{ label: 'Contact', href: '#contact' }
+		{ label: "What's on", href: '/whats-on' },
+		{ label: 'Get involved', href: '/get-involved' },
+		{ label: 'About', href: '/about' },
+		{ label: 'Contact', href: '/contact' }
 	];
+
+	const isCurrent = (href: string) => page.url.pathname === href;
 
 	let menuOpen = $state(false);
 </script>
 
 <header>
 	<div class="bar">
-		<a href="#top" class="brand">
+		<a href="/" class="brand">
 			<img src="/images/badge-44.webp" srcset="/images/badge-88.webp 2x" width="44" height="44" alt="Brooke Primary School badge" />
 			<span>Brooke Primary PTFA</span>
 		</a>
 		<nav aria-label="Main" class="wide-nav">
 			{#each navItems as item (item.href)}
-				<a href={item.href}>{item.label}</a>
+				<a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
 			{/each}
 		</nav>
 		<div class="actions">
@@ -44,7 +47,9 @@
 	{#if menuOpen}
 		<nav aria-label="Mobile" id="mobile-nav" class="mobile-nav">
 			{#each navItems as item (item.href)}
-				<a href={item.href} onclick={() => (menuOpen = false)}>{item.label}</a>
+				<a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined} onclick={() => (menuOpen = false)}>
+					{item.label}
+				</a>
 			{/each}
 		</nav>
 	{/if}
@@ -98,6 +103,10 @@
 		text-decoration: none;
 		color: var(--fg-2);
 		transition: background 120ms ease-out;
+	}
+	.wide-nav a[aria-current='page'] {
+		background: var(--brooke-blue-50);
+		color: var(--brooke-blue-700);
 	}
 	.wide-nav a:hover {
 		background: var(--brooke-blue-50);

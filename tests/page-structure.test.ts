@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { listBuiltFiles, loadBuiltPage } from './helpers/built-site';
+import { PAGES, listBuiltFiles, loadBuiltPage } from './helpers/built-site';
 
-const page = loadBuiltPage();
+const builtFiles = new Set(listBuiltFiles());
 
-describe('home page structure', () => {
+describe.each(PAGES)('structure of $path', ({ file }) => {
+	const page = loadBuiltPage(file);
+
 	it('never nests a button or link inside a link', () => {
 		// Given the prototype wrapped <button> elements in <a> elements
 		// When looking for interactive elements inside links
@@ -41,26 +43,23 @@ describe('home page structure', () => {
 	});
 
 	it('serves every local image it references', () => {
-		// Given the files in the build
-		const files = new Set(listBuiltFiles());
-
-		// When collecting local image paths from src and srcset
 		const paths = page.querySelectorAll('img').flatMap((img) => [
 			img.getAttribute('src') ?? '',
 			...(img.getAttribute('srcset') ?? '').split(',').map((entry) => entry.trim().split(' ')[0])
 		]);
-		const local = paths.filter((path) => path.startsWith('/'));
+		const missing = paths.filter((path) => path.startsWith('/') && !builtFiles.has(path.slice(1)));
 
-		// Then each one exists
-		expect(local.length).toBeGreaterThan(0);
-		for (const path of local) {
-			expect(files.has(path.slice(1)), `${path} is in the build`).toBe(true);
-		}
+		expect(paths.length).toBeGreaterThan(0);
+		expect(missing).toEqual([]);
 	});
 
 	it('gives every image alt text', () => {
 		const missingAlt = page.querySelectorAll('img').filter((img) => img.getAttribute('alt') === undefined);
 
 		expect(missingAlt.map((img) => img.getAttribute('src'))).toEqual([]);
+	});
+
+	it('has exactly one main heading', () => {
+		expect(page.querySelectorAll('h1')).toHaveLength(1);
 	});
 });

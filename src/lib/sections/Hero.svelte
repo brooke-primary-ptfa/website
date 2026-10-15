@@ -11,8 +11,8 @@
 			Brooke Primary even better.
 		</p>
 		<div class="buttons">
-			<LinkButton href="#events" size="lg" iconRight="arrow-right">See what's on</LinkButton>
-			<LinkButton href="#help" size="lg" variant="secondary">Get involved</LinkButton>
+			<LinkButton href="/whats-on" size="lg" iconRight="arrow-right">See what's on</LinkButton>
+			<LinkButton href="/get-involved" size="lg" variant="secondary">Get involved</LinkButton>
 		</div>
 	</div>
 	<div class="photo">

@@ -26,14 +26,11 @@ export interface Promotion {
 /** Links that are absent are not shown on the site. */
 export interface SiteLinks {
 	ptaEvents: string;
-	email: string;
 	donate?: string;
 	easyfundraising?: string;
 	lottery?: string;
 	facebook?: string;
 	whatsapp?: string;
-	privacy?: string;
-	accessibility?: string;
 }
 
 export interface SiteDocument {

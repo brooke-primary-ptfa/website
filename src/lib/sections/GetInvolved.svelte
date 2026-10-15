@@ -3,12 +3,12 @@
 	import Icon from '#lib/components/Icon.svelte';
 	import type { IconName } from '#lib/components/icons.ts';
 	import LinkButton from '#lib/components/LinkButton.svelte';
-	import SectionHeading from '#lib/components/SectionHeading.svelte';
+	import { charity } from '#lib/content/charity.ts';
 	import type { SiteLinks } from '#lib/content/types.ts';
 
 	let { links }: { links: SiteLinks } = $props();
 
-	const mailTo = (subject: string) => `mailto:${links.email}?subject=${encodeURIComponent(subject)}`;
+	const mailTo = (subject: string) => `mailto:${charity.email}?subject=${encodeURIComponent(subject)}`;
 
 	const timeWays: { title: string; icon: IconName; text: string; buttonText: string; href: string; external: boolean; accent: Accent }[] = $derived([
 		{ title: 'Help at an event', icon: 'party-popper', text: 'Run a stall, serve teas or help tidy up. Sign up for a slot on PTA Events.', buttonText: 'Pick a slot', href: links.ptaEvents, external: true, accent: 'pink' },
@@ -24,12 +24,7 @@
 	);
 </script>
 
-<section id="help" class="section">
-	<div class="intro">
-		<SectionHeading>Everyone has something to give</SectionHeading>
-		<p>An hour, a cake or a few pounds. You don't need to join the committee to make a difference.</p>
-	</div>
-
+<section class="section get-involved">
 	<h3><Icon name="clock" size={22} color="var(--duck-green-700)" />Give a little time</h3>
 	<div class="time-grid">
 		{#each timeWays as way (way.title)}
@@ -90,16 +85,8 @@
 </section>
 
 <style>
-	.intro {
-		display: flex;
-		flex-direction: column;
-		gap: 12px;
-		margin-bottom: 32px;
-		max-width: 640px;
-	}
-	.intro p {
-		color: var(--fg-2);
-		font-size: 18px;
+	.get-involved {
+		padding-top: 40px;
 	}
 	h3 {
 		font-size: 22px;

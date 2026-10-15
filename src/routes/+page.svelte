@@ -1,16 +1,9 @@
 <script lang="ts">
 	import { siteContent } from '#lib/content/site-content.ts';
-	import About from '#lib/sections/About.svelte';
-	import GetInvolved from '#lib/sections/GetInvolved.svelte';
 	import Hero from '#lib/sections/Hero.svelte';
 	import Impact from '#lib/sections/Impact.svelte';
 	import PromoCarousel from '#lib/sections/PromoCarousel.svelte';
-	import SiteFooter from '#lib/sections/SiteFooter.svelte';
-	import SiteHeader from '#lib/sections/SiteHeader.svelte';
-	import StayInTouch from '#lib/sections/StayInTouch.svelte';
-	import WhatsOn from '#lib/sections/WhatsOn.svelte';
-
-	const { events, promotions, links, documents, committee } = siteContent;
+	import WhatWeDo from '#lib/sections/WhatWeDo.svelte';
 </script>
 
 <svelte:head>
@@ -21,14 +14,7 @@
 	/>
 </svelte:head>
 
-<SiteHeader donateUrl={links.donate} />
-<main id="top">
-	<PromoCarousel {promotions} />
-	<Hero />
-	<WhatsOn {events} ptaEventsUrl={links.ptaEvents} />
-	<GetInvolved {links} />
-	<Impact />
-	<About {documents} {committee} />
-	<StayInTouch {links} />
-</main>
-<SiteFooter {links} />
+<PromoCarousel promotions={siteContent.promotions} />
+<Hero />
+<WhatWeDo />
+<Impact />

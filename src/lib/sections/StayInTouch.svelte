@@ -2,7 +2,7 @@
 	import { accentColours, type Accent } from '#lib/components/accents.ts';
 	import Icon from '#lib/components/Icon.svelte';
 	import type { IconName } from '#lib/components/icons.ts';
-	import SectionHeading from '#lib/components/SectionHeading.svelte';
+	import { charity } from '#lib/content/charity.ts';
 	import type { SiteLinks } from '#lib/content/types.ts';
 
 	let { links }: { links: SiteLinks } = $props();
@@ -21,16 +21,14 @@
 			[
 				{ title: 'Facebook', text: 'News, photos and reminders', icon: 'facebook', href: links.facebook, external: true, accent: 'blue' },
 				{ title: 'WhatsApp community', text: 'Chat with other Brooke families', icon: 'message-circle', href: links.whatsapp, external: true, accent: 'green' },
-				{ title: 'Email', text: links.email, icon: 'mail', href: `mailto:${links.email}`, external: false, accent: 'yellow' }
+				{ title: 'Email', text: charity.email, icon: 'mail', href: `mailto:${charity.email}`, external: false, accent: 'yellow' }
 			] satisfies Channel[]
 		).filter((channel) => Boolean(channel.href))
 	);
 </script>
 
-<section id="contact" class="section">
-	<div class="intro">
-		<SectionHeading>Stay in touch</SectionHeading>
-	</div>
+<section class="section stay-in-touch">
+	<h2>Stay in touch</h2>
 	<div class="grid">
 		{#each channels as channel (channel.title)}
 			{@const colours = accentColours[channel.accent]}
@@ -53,11 +51,12 @@
 </section>
 
 <style>
-	.intro {
-		display: flex;
-		flex-direction: column;
-		gap: 12px;
-		margin-bottom: 24px;
+	.stay-in-touch {
+		padding-top: 40px;
+	}
+	h2 {
+		font-size: 26px;
+		margin-bottom: 16px;
 	}
 	.grid {
 		display: grid;

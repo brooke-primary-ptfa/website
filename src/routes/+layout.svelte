@@ -2,6 +2,9 @@
 	import '#lib/styles/fonts.css';
 	import '#lib/styles/tokens.css';
 	import '#lib/styles/base.css';
+	import { siteContent } from '#lib/content/site-content.ts';
+	import SiteFooter from '#lib/sections/SiteFooter.svelte';
+	import SiteHeader from '#lib/sections/SiteHeader.svelte';
 	import type { LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();
@@ -14,4 +17,8 @@
 	<link rel="preload" href="/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 </svelte:head>
 
-{@render children()}
+<SiteHeader donateUrl={siteContent.links.donate} />
+<main>
+	{@render children()}
+</main>
+<SiteFooter />

@@ -1,17 +1,11 @@
 <script lang="ts">
-	import { CHARITY_REGISTER_URL, REGISTERED_NAME } from '#lib/content/site-content.ts';
-	import type { SiteLinks } from '#lib/content/types.ts';
+	import { charity } from '#lib/content/charity.ts';
 
-	let { links }: { links: SiteLinks } = $props();
-
-	const footerLinks = $derived(
-		[
-			{ label: 'Charity Commission', href: CHARITY_REGISTER_URL, external: true },
-			{ label: 'Privacy', href: links.privacy, external: false },
-			{ label: 'Accessibility', href: links.accessibility, external: false },
-			{ label: 'School website', href: 'https://www.brooke.norfolk.sch.uk', external: true }
-		].filter((link) => Boolean(link.href))
-	);
+	const footerLinks = [
+		{ label: 'Charity Commission entry', href: charity.register.entry, external: true },
+		{ label: 'Privacy', href: '/privacy', external: false },
+		{ label: 'School website', href: charity.schoolWebsite, external: true }
+	];
 </script>
 
 <footer>
@@ -23,11 +17,11 @@
 	</div>
 	<div class="content">
 		<div class="about">
-			<span class="name">Brooke Primary PTFA</span>
+			<span class="name">{charity.shortName}</span>
 			<span>
-				{REGISTERED_NAME}, registered charity No. 1034707, supporting Brooke Church of England VC Primary
-				School, Brooke, Norfolk.
+				{charity.registeredName}, registered charity No. {charity.number}, supporting {charity.schoolName}.
 			</span>
+			<address>{charity.address.join(', ')}</address>
 		</div>
 		<div class="links">
 			{#each footerLinks as link (link.label)}
@@ -78,13 +72,16 @@
 		display: flex;
 		flex-direction: column;
 		gap: 6px;
-		max-width: 520px;
+		max-width: 560px;
 	}
 	.name {
 		font-family: var(--font-display);
 		font-size: 21px;
 		font-weight: 600;
 		color: var(--white);
+	}
+	address {
+		font-style: normal;
 	}
 	.links {
 		display: flex;
