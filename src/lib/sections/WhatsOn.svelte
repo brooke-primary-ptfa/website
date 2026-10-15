@@ -10,7 +10,11 @@
 	{#if events.length > 0}
 		<div class="list">
 			{#each events as event (event.date + event.title)}
-				<a href={ptaEventsUrl} target="_blank" rel="noopener"><EventCard {event} /></a>
+				{#if event.bookingUrl}
+					<a href={event.bookingUrl} target="_blank" rel="noopener"><EventCard {event} /></a>
+				{:else}
+					<EventCard {event} />
+				{/if}
 			{/each}
 		</div>
 	{/if}

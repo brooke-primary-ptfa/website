@@ -8,7 +8,30 @@ import type { SiteContent } from './types.ts';
  * to the PTFA Google Sheet.
  */
 export const siteContent: SiteContent = {
-	events: [],
+	// From the PTFA's event posters, October 2026.
+	events: [
+		{
+			date: '2026-10-31',
+			title: 'Halloween Family Fun',
+			time: '4:30pm onwards',
+			location: 'With The White Lion, Brooke',
+			price: 'Free',
+			accent: 'pink',
+			helpersWanted: false,
+			details:
+				"Treats, colouring and a drink for the children, in partnership with The White Lion public house. Donations welcome: they all go towards the pupils' experience at school."
+		},
+		{
+			date: '2026-11-07',
+			title: 'Glow lights and glow toys at Fireworks Night',
+			time: '6pm–7pm',
+			location: 'Brooke Village Hall',
+			price: '£6 for one, £10 for two',
+			accent: 'blue',
+			helpersWanted: false,
+			details: 'The PTFA is selling glow lights and glow toys at the village fireworks night.'
+		}
+	],
 	promotions: [],
 	links: {
 		ptaEvents: 'https://www.pta-events.co.uk/ptfabrookeprimarynorfolk/'

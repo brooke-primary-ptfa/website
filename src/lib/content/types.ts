@@ -10,6 +10,10 @@ export interface SiteEvent {
 	price: string;
 	accent: Accent;
 	helpersWanted: boolean;
+	/** A sentence or two about the event. */
+	details?: string;
+	/** Where to book or buy tickets. Without it the card is not a link. */
+	bookingUrl?: string;
 }
 
 export interface Promotion {

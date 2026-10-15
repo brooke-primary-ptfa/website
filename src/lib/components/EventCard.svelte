@@ -24,6 +24,7 @@
 			<span>{event.location}</span>
 			<span class="price">{event.price}</span>
 		</div>
+		{#if event.details}<p class="event-details">{event.details}</p>{/if}
 	</div>
 </div>
 
@@ -115,5 +116,9 @@
 	.price {
 		color: var(--fg-1);
 		font-weight: 600;
+	}
+	.event-details {
+		font-size: 15px;
+		color: var(--fg-2);
 	}
 </style>

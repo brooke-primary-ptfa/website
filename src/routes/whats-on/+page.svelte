@@ -10,6 +10,6 @@
 </svelte:head>
 
 <PageHeading title="What's on">
-	Tickets and helper sign-ups are on PTA Events.{#if siteContent.events.length > 0} Tap an event to book.{/if}
+	Coming up from the PTFA. Tickets and helper sign-ups for ticketed events are on PTA Events.
 </PageHeading>
 <WhatsOn events={siteContent.events} ptaEventsUrl={siteContent.links.ptaEvents} />

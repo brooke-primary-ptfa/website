@@ -76,10 +76,12 @@
 				</div>
 			</div>
 			<div class="prices">
-				<span>Branded jumpers <strong>£3</strong></span>
-				<span>Branded shirts <strong>£2</strong></span>
-				<span>Non-branded <strong>£1</strong></span>
+				<span>Logo jumpers, cardigans and fleeces <strong>£3</strong></span>
+				<span>Logo polo shirts and PE tops <strong>£2</strong></span>
+				<span>Non-logo items <strong>£1</strong></span>
+				<span>Bags <strong>£2</strong></span>
 			</div>
+			<p class="uniform-note">We're always looking for donations of Brooke logo items.</p>
 		</div>
 	</div>
 </section>
@@ -219,6 +221,10 @@
 		display: flex;
 		gap: 8px;
 		flex-wrap: wrap;
+	}
+	.uniform-note {
+		font-size: 15px;
+		color: var(--fg-2);
 	}
 	.prices span {
 		background: var(--white);
