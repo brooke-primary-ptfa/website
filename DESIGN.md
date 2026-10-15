@@ -26,6 +26,7 @@ says (events, promotions, links, documents) without help from a developer.
 | Links with no address yet | Not shown. The prototype linked them to "#". Donate, Easyfundraising, lottery, Facebook, WhatsApp, privacy and accessibility are hidden until real addresses are added. |
 | Placeholder content | Not shown. The prototype's example events and promotions, "To be confirmed" committee and "Awaiting approved copy" documents are left out until real versions exist. |
 | Charity identity on the site | The About section and footer give the registered name, Brooke Parent-Teacher and Friends Association, and the charity number, so the site can be matched to the Charity Commission register. The public contact address is treasurer@brookeprimaryptfa.org.uk. |
+| How GitHub Actions signs in to Google | Workload identity federation, no stored keys. Provider `github/website-repo` accepts tokens only from repository `brooke-primary-ptfa/website`, branch `main`. They act as `website-publisher@tactical-racer-511622-r1.iam.gserviceaccount.com`, which has Firebase Hosting Admin and Service Usage Consumer. |
 | Code ownership | Public repo `brooke-primary-ptfa/website` in a GitHub organisation owned by the PTFA. |
 
 ## How content gets to the site

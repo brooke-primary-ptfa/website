@@ -1,0 +1,43 @@
+name: Deploy live
+
+# Slice 2 of DESIGN.md: every push to main is tested and deployed to the
+# live site. Slice 4 replaces this with the preview/live buttons in the sheet.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # lets the job ask GitHub for a token to sign in to Google
+
+concurrency:
+  group: deploy-live
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Measured: install, build, test and deploy take about a minute locally.
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm test
+
+      # Keyless sign-in. Google only accepts tokens from this repository's
+      # main branch (workload identity provider condition), and the service
+      # account can only manage Firebase Hosting.
+      - uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: projects/741923882629/locations/global/workloadIdentityPools/github/providers/website-repo
+          service_account: website-publisher@tactical-racer-511622-r1.iam.gserviceaccount.com
+
+      - run: npx firebase deploy --only hosting --project tactical-racer-511622-r1 --non-interactive
