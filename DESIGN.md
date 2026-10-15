@@ -106,7 +106,7 @@ Parents pay for an event and give details at the same time:
 |---|---|---|
 | Disco | Which child and which class, allergies, medical information, emergency contact, who is picking them up, other information | 20 Nov |
 | Elfridges (Christmas gift shop) | Child's name, class, and who they are buying presents for: women 10+, men 10+, girls, boys | 20 Nov |
-| Tea towels | How many, who is buying them, child and class | Not given |
+| Tea towels | How many, who is buying them, child and class. Price: £5 each, or 3 for £12 | Not given |
 
 Points to settle when this is designed:
 
