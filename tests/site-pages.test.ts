@@ -22,7 +22,7 @@ describe('site pages', () => {
 		const page = loadBuiltPage(file);
 		const navTargets = page.querySelectorAll('nav[aria-label="Main"] a').map((link) => link.getAttribute('href'));
 
-		expect(navTargets).toEqual(['/whats-on', '/get-involved', '/about', '/contact']);
+		expect(navTargets).toEqual(['/', '/whats-on', '/get-involved', '/about', '/contact']);
 	});
 
 	it.each(PAGES)('only links $path to pages that exist', ({ file }) => {

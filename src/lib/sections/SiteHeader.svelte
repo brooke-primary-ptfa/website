@@ -6,6 +6,7 @@
 	let { donateUrl }: { donateUrl?: string } = $props();
 
 	const navItems = [
+		{ label: 'Home', href: '/' },
 		{ label: "What's on", href: '/whats-on' },
 		{ label: 'Get involved', href: '/get-involved' },
 		{ label: 'About', href: '/about' },
