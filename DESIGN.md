@@ -96,6 +96,29 @@ Each slice ends with the change live on the site.
    volunteer how-to guide.
 9. **Custom domain** `brookeprimaryptfa.org.uk`.
 
+## Noted for later: paying for events
+
+Recorded 2026-10-15. Not designed or scheduled yet.
+
+Parents pay for an event and give details at the same time:
+
+| Event | Details to collect | Deadline |
+|---|---|---|
+| Disco | Which child and which class, allergies, medical information, emergency contact, who is picking them up, other information | 20 Nov |
+| Elfridges (Christmas gift shop) | Child's name, class, and who they are buying presents for: women 10+, men 10+, girls, boys | 20 Nov |
+| Tea towels | How many, who is buying them, child and class | Not given |
+
+Points to settle when this is designed:
+
+- Allergies and medical information are health data, a special category
+  under UK GDPR. The PTFA would need a lawful basis, a retention period
+  and restricted access.
+- The site is static and has no server or database. Payments and the
+  answers would need another service, for example the PTA Events site the
+  PTFA already uses for tickets, if it can ask custom questions.
+- The Privacy page says the site has no forms. It would need updating if
+  the site itself collected anything.
+
 ## Open questions
 
 None at present.
